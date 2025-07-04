@@ -1,0 +1,31 @@
+:root {
+  /* Colores primarios */
+  --color-primary: #fa7436; /* Naranja principal (botones, acentos) */
+  --color-primary-dark: #e66327; /* Versión más oscura del naranja */
+
+  /* Colores secundarios */
+  --color-secondary: #ffd205; /* Amarillo (estrellas y pequeños acentos) */
+  --color-highlight: #2d96fa; /* Azul usado en íconos o links ocasionales */
+  --color-success: #45b26b; /* Verde si deseas usar algún estado positivo */
+
+  /* Colores neutros */
+  --color-white: #ffffff;
+  --color-light: #f7f8fc; /* Fondo claro general */
+  --color-gray: #9b9b9b; /* Texto secundario */
+  --color-dark: #191825; /* Títulos y texto principal */
+
+  /* Texto */
+  --text-primary: #191825;
+  --text-secondary: #6e6e6e;
+
+  /* Extras */
+  --color-border: #e5e5e5;
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --radius-soft: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
