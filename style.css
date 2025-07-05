@@ -82,6 +82,9 @@
 /*Dayana
 
 /* Estilo del header */
+
+
+
 header {
   background-color: var(--color-light);
   border-bottom: 1px solid var(--color-border);
@@ -123,4 +126,161 @@ header {
 .nav-links li a:hover {
   color: var(--color-primary);
   border-top: solid 2px var(--color-dark);
+}
+
+.things-to-do {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f7f8fc;
+}
+
+.things-to-do h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 3rem;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.things-to-do h2 span {
+  color: #ff6a00;
+}
+
+
+/* 
+PARTE Features
+*/
+.things-to-do p {
+  max-width: 700px;
+  font-weight: 400;
+  margin: 0 auto 40px;
+  color: #666;
+  font-size: 1rem;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px 20px;
+  width: 280px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #666;
+}
+ 
+/*
+Parte de Vacaciones
+*/
+
+.vacations-plans {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.vacations-plans h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.vacations-plans h2 span {
+  color: #ff6a00;
+}
+
+.vacations-plans .description {
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.destinations {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.destination-card {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 280px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.destination-card .book-now{
+background-color: var(--color-primary);
+width: 100px;
+height: 40px;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-120%);
+border: none;
+border-radius: 10px;
+color: var(--color-white);
+
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+}
+
+.destination-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.destination-card .info {
+  padding: 15px;
+  text-align: left;
+}
+
+.destination-card h3 {
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.destination-card p {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.destination-card p img {
+  width: 30px;
+  height: auto;
 }
