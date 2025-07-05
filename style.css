@@ -13,6 +13,7 @@
   --color-light: #f7f8fc; /* Fondo claro general */
   --color-gray: #9b9b9b; /* Texto secundario */
   --color-dark: #191825; /* Títulos y texto principal */
+  --color-gray-light: #ffe7db; /* Fondo de tarjetas o secciones secundarias */
 
   /* Texto */
   --text-primary: #191825;
@@ -38,7 +39,7 @@
   overflow-x: hidden;
   background-color: var(--color-light);
   padding-bottom: 2rem;
-  width: auto;
+  width: 100%;
   height: auto;
 }
 
@@ -79,17 +80,136 @@
   width: 100%;
 }
 
+.hero button {
+  background-color: transparent;
+  border: solid 2px var(--color-primary);
+  width: 10rem;
+  height: 4rem;
+  border-radius: var(--radius-soft);
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.deals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: var(--color-light);
+}
+.deals h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.deals h2 span {
+  color: var(--color-primary);
+}
+
+.deals p {
+  width: 100%;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+  color: var(--text-secondary);
+}
+
+.deals .carrusel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding: 1rem;
+}
+/* .deals .carrusel::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento 
+} */
+
+.carrusel .oferta {
+  flex: 0 0 auto; /* Permite que los elementos se ajusten al contenido */
+  width: 300px; /* Ancho fijo para cada oferta */
+  background-color: var(--color-white);
+  border-radius: var(--radius-soft);
+  box-shadow: var(--shadow-soft);
+  padding: 1rem;
+  scroll-snap-align: start; /* Alinea el inicio de cada oferta al inicio del viewport */
+}
+
+.oferta img {
+  max-width: 100%;
+  border-radius: var(--radius-soft);
+  height: 18rem;
+}
+
+.oferta .info {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.oferta .info p {
+  font-size: 1rem;
+  width: auto;
+}
+
+.oferta .location-pricing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.oferta .location-pricing img {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+.location-pricing p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  text-align: left;
+}
+
+.oferta .precio-anterior {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-decoration: line-through;
+  text-align: right;
+  margin-right: 1rem;
+}
+
+.location-pricing .precio-actual {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background-color: var(--color-gray-light);
+  text-align: right;
+  max-width: 3.5rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 5px;
+}
+
 /*Dayana
 
 /* Estilo del header */
-
-
 
 header {
   background-color: var(--color-light);
   border-bottom: 1px solid var(--color-border);
   padding: 20px 40px;
-  width:100%;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 /* Contenedor del logo y menú */
@@ -117,9 +237,7 @@ header {
   color: var(--color-dark);
   font-weight: 700;
   transition: color 0.3s ease;
-  padding:10px 0;
-
-  
+  padding: 10px 0;
 }
 
 /* Efecto al pasar el mouse */
@@ -146,7 +264,6 @@ header {
   color: #ff6a00;
 }
 
-
 /* 
 PARTE Features
 */
@@ -170,7 +287,7 @@ PARTE Features
   border-radius: 10px;
   padding: 30px 20px;
   width: 280px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
 }
 
@@ -193,7 +310,7 @@ PARTE Features
   font-size: 0.95rem;
   color: #666;
 }
- 
+
 /*
 Parte de Vacaciones
 */
@@ -232,26 +349,29 @@ Parte de Vacaciones
   border-radius: 12px;
   overflow: hidden;
   width: 280px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s;
 }
 
-.destination-card .book-now{
-background-color: var(--color-primary);
-width: 100px;
-height: 40px;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%,-120%);
-border: none;
-border-radius: 10px;
-color: var(--color-white);
-
+.destination-card .book-now {
+  display: none;
+  background-color: var(--color-primary);
+  width: 100px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -120%);
+  border: none;
+  border-radius: 10px;
+  color: var(--color-white);
 }
 
 .destination-card:hover {
   transform: translateY(-5px);
+}
+.destination-card:hover .book-now {
+  display: block;
 }
 
 .destination-card img {
