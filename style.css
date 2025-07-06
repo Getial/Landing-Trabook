@@ -2,6 +2,7 @@
   /* Colores primarios */
   --color-primary: #fa7436; /* Naranja principal (botones, acentos) */
   --color-primary-dark: #e66327; /* Versión más oscura del naranja */
+  --color-primary-light: #ffe7db; /* Fondo de tarjetas o secciones secundarias */
 
   /* Colores secundarios */
   --color-secondary: #ffd205; /* Amarillo (estrellas y pequeños acentos) */
@@ -12,8 +13,8 @@
   --color-white: #ffffff;
   --color-light: #f7f8fc; /* Fondo claro general */
   --color-gray: #9b9b9b; /* Texto secundario */
+  --color-gray-light: #f0f0f0; /* Fondo de tarjetas o secciones secundarias */
   --color-dark: #191825; /* Títulos y texto principal */
-  --color-gray-light: #ffe7db; /* Fondo de tarjetas o secciones secundarias */
 
   /* Texto */
   --text-primary: #191825;
@@ -48,7 +49,7 @@
   padding-bottom: 2rem;
   padding-left: 5rem;
   padding-right: 1rem;
-  max-width: 35rem;
+  max-width: 45rem;
 }
 
 .hero-description h1 {
@@ -70,6 +71,7 @@
   font-weight: 400;
   line-height: 1.75rem;
   margin-bottom: 2rem;
+  max-width: 600px;
 }
 
 .hero-image {
@@ -87,10 +89,15 @@
   height: 4rem;
   border-radius: var(--radius-soft);
   color: var(--color-primary);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
 .deals {
@@ -102,12 +109,14 @@
   padding: 2rem;
   background-color: var(--color-light);
 }
+
 .deals h2 {
   width: 100%;
   text-align: center;
   font-size: 2.5rem;
   font-weight: 700;
 }
+
 .deals h2 span {
   color: var(--color-primary);
 }
@@ -121,7 +130,7 @@
   color: var(--text-secondary);
 }
 
-.deals .carrusel {
+.carrusel {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -132,7 +141,7 @@
   display: none; /* Oculta la barra de desplazamiento 
 } */
 
-.carrusel .oferta {
+.carrusel-item {
   flex: 0 0 auto; /* Permite que los elementos se ajusten al contenido */
   width: 300px; /* Ancho fijo para cada oferta */
   background-color: var(--color-white);
@@ -140,12 +149,38 @@
   box-shadow: var(--shadow-soft);
   padding: 1rem;
   scroll-snap-align: start; /* Alinea el inicio de cada oferta al inicio del viewport */
+  transition: transform 0.3s ease;
+}
+.carrusel-item:hover {
+  transform: translateY(-5px);
 }
 
-.oferta img {
+.carrusel-item img {
   max-width: 100%;
   border-radius: var(--radius-soft);
   height: 18rem;
+}
+
+.oferta .button-book-now {
+  display: none;
+  position: absolute;
+  bottom: 15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-soft);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.oferta:hover .button-book-now {
+  display: block; /* Muestra el botón al pasar el mouse */
 }
 
 .oferta .info {
@@ -193,11 +228,169 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-primary);
-  background-color: var(--color-gray-light);
+  background-color: var(--color-primary-light);
   text-align: right;
   max-width: 3.5rem;
   padding: 0.1rem 0.5rem;
   border-radius: 5px;
+}
+
+.blog {
+  background-color: var(--color-light);
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.blog h2 span {
+  color: var(--color-primary);
+}
+
+.post-info {
+  padding: 1rem;
+  text-align: left;
+  height: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-gray-light);
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+  width: 100%;
+  /* max-width: 1040px; */
+  height: auto;
+  padding: 2rem 0;
+}
+
+.footer-details .column {
+  width: 20%;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.footer-details .logo-column {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo-column p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.column ul li {
+  margin: 0.5rem 0;
+}
+
+.column ul li a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  text-align: left;
+}
+
+.column ul li a:hover {
+  color: var(--color-dark);
+}
+
+footer .copyright {
+  border-top: 2px solid var(--color-border);
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* max-width: 900px; */
+  height: 6rem;
+}
+
+.copyright .made-by {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.made-by p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.made-by p span {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+}
+
+.made-by a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 300;
+  transition: color 0.3s ease;
+}
+
+.made-by a:hover {
+  color: var(--color-primary-dark);
+}
+
+@media (max-width: 1045px) {
+  .footer-details .column {
+    flex: 1 1 35%;
+    padding-left: 8rem;
+  }
+  .footer-details .logo-column {
+    /* width: 100%; */
+    padding-left: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .footer-details .column {
+    flex: 1 1 100%;
+    padding-left: 2rem;
+  }
+  footer .copyright {
+    padding: 1rem 0 0 0;
+  }
 }
 
 /*Dayana
@@ -208,7 +401,7 @@ header {
   background-color: var(--color-light);
   border-bottom: 1px solid var(--color-border);
   padding: 20px 40px;
-  width: 100vw;
+  width: 98vw;
   overflow-x: hidden;
 }
 
