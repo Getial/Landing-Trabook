@@ -442,7 +442,7 @@ header {
 .things-to-do {
   text-align: center;
   padding: 60px 20px;
-  background-color: #f7f8fc;
+  background-color: var(--color-light);
 }
 
 .things-to-do h2 {
@@ -450,11 +450,11 @@ header {
   font-weight: 800;
   line-height: 3rem;
   margin-bottom: 10px;
-  color: #111;
+  color: var(--text-primary);
 }
 
 .things-to-do h2 span {
-  color: #ff6a00;
+  color: var(--color-primary);
 }
 
 /* 
@@ -464,7 +464,7 @@ PARTE Features
   max-width: 700px;
   font-weight: 400;
   margin: 0 auto 40px;
-  color: #666;
+  color: var(--color-gray);
   font-size: 1rem;
 }
 
@@ -476,7 +476,7 @@ PARTE Features
 }
 
 .card {
-  background-color: #fff;
+  background-color: var(--color-light);
   border-radius: 10px;
   padding: 30px 20px;
   width: 280px;
@@ -496,12 +496,12 @@ PARTE Features
 .card h3 {
   font-size: 1.2rem;
   margin-bottom: 10px;
-  color: #111;
+  color: var(--text-primary);
 }
 
 .card p {
   font-size: 0.95rem;
-  color: #666;
+  color: var(--color-gray);
 }
 
 /*
@@ -519,11 +519,11 @@ Parte de Vacaciones
 }
 
 .vacations-plans h2 span {
-  color: #ff6a00;
+  color: var();
 }
 
 .vacations-plans .description {
-  color: #666;
+  color: var(--color-gray);
   max-width: 600px;
   margin: 0 auto 40px;
   font-size: 1rem;
@@ -538,7 +538,7 @@ Parte de Vacaciones
 }
 
 .destination-card {
-  background-color: #fff;
+  background-color: var();
   border-radius: 12px;
   overflow: hidden;
   width: 280px;
@@ -587,7 +587,7 @@ Parte de Vacaciones
 
 .destination-card p {
   font-size: 0.9rem;
-  color: #666;
+  color: var(--text-secondary);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -596,4 +596,68 @@ Parte de Vacaciones
 .destination-card p img {
   width: 30px;
   height: auto;
+}
+
+/* 
+FORMULARIO
+*/
+.form-suscribe {
+  background-color: var(--color-primary); /* Naranja fuerte */
+  color: var(--color-light);
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 15px;
+  margin: 5rem auto;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-suscribe h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+.form {
+  background-color: var(--color-light);
+  width: 35%;
+  padding: 1rem;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-radius: 15px;
+  flex-direction: column;
+}
+
+.form input {
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  width: 250px;
+  max-width: 80%;
+  font-size: 1rem;
+  height: 60%;
+  text-align: center;
+}
+
+.form-suscribe button {
+  padding: 15px 25px;
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  height: 60%;
+}
+
+.form-suscribe button:hover {
+  background-color: var(--color-light);
 }

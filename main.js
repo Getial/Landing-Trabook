@@ -74,62 +74,6 @@ const posts = [
   },
 ];
 
-// function crearOferta(oferta) {
-//   const ofertaDiv = document.createElement("div");
-//   ofertaDiv.classList.add("oferta");
-
-//   const buttonBookNow = document.createElement("button");
-//   buttonBookNow.textContent = "Book Now";
-//   buttonBookNow.classList.add("button-book-now");
-//   buttonBookNow.addEventListener("click", () => {
-//     alert(`Reservando oferta en ${oferta.ciudad}, ${oferta.pais}`);
-//   });
-//   ofertaDiv.appendChild(buttonBookNow);
-
-//   const imagen = document.createElement("img");
-//   imagen.src = oferta.imagen;
-//   imagen.alt = `${oferta.ciudad}, ${oferta.pais}`;
-//   ofertaDiv.appendChild(imagen);
-
-//   const infoDiv = document.createElement("div");
-//   infoDiv.classList.add("info");
-
-//   const titulo = document.createElement("h3");
-//   titulo.textContent = `${oferta.ciudad}`;
-//   infoDiv.appendChild(titulo);
-
-//   const calificacion = document.createElement("p");
-//   calificacion.textContent = `⭐ ${oferta.calificacion}`;
-//   infoDiv.appendChild(calificacion);
-
-//   const locationPricingDiv = document.createElement("div");
-//   locationPricingDiv.classList.add("location-pricing");
-
-//   const locationIcon = document.createElement("img");
-//   locationIcon.src = "./assets/icon-ubication.png";
-//   locationIcon.alt = "Ubicación";
-//   locationPricingDiv.appendChild(locationIcon);
-
-//   const pais = document.createElement("p");
-//   pais.textContent = oferta.pais;
-//   locationPricingDiv.appendChild(pais);
-
-//   const precioAnterior = document.createElement("p");
-//   precioAnterior.textContent = `$${oferta.precioAnterior}`;
-//   precioAnterior.classList.add("precio-anterior");
-//   locationPricingDiv.appendChild(precioAnterior);
-
-//   const precioActual = document.createElement("p");
-//   precioActual.textContent = `$${oferta.precio}`;
-//   precioActual.classList.add("precio-actual");
-//   locationPricingDiv.appendChild(precioActual);
-
-//   ofertaDiv.appendChild(infoDiv);
-//   ofertaDiv.appendChild(locationPricingDiv);
-
-//   return ofertaDiv;
-// }
-
 function crearOferta(oferta) {
   const ofertaHTML = `
     <div class="oferta carrusel-item">
@@ -198,3 +142,32 @@ document.addEventListener("DOMContentLoaded", () => {
   cargarOfertas();
   cargarPosts();
 });
+
+const reloj = document.getElementById("reloj");
+const duracion = 2 * 60 * 60 * 1000;
+const inicio = new Date().getTime();
+const fin = inicio + duracion;
+// reloj.textContent = "00:00:00";
+
+function countdown() {
+  const ahora = new Date().getTime();
+  const diferencia = fin - ahora;
+
+  if (diferencia <= 0) {
+    clearInterval(intervalo);
+    return;
+  }
+  const horas = Math.floor(diferencia / (60 * 60 * 1000));
+  const minutos = Math.floor((diferencia % (60 * 60 * 1000)) / (1000 * 60));
+  const segundos = Math.floor((diferencia % (60 * 1000)) / 1000);
+
+  // horas = String(horas).padStart(2, "0");
+  // minutos = String(minutos).padStart(2, "0");
+  // segundos = String(segundos).padStart(2, "0");
+  reloj.textContent = `${String(horas).padStart(2, "0")}:${String(
+    minutos
+  ).padStart(2, "0")}:${String(segundos).padStart(2, "0")}`;
+}
+
+countdown();
+const intervalo = setInterval(countdown, 1000);
