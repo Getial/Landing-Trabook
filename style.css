@@ -480,7 +480,7 @@ PARTE Features
   border-radius: 10px;
   padding: 30px 20px;
   width: 280px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px var(--color-dark);
   transition: transform 0.3s ease;
 }
 
@@ -612,6 +612,7 @@ FORMULARIO
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-size: 1.5rem;
 }
 
 .form-suscribe h2 {
@@ -633,6 +634,7 @@ FORMULARIO
   gap: 10px;
   border-radius: 15px;
   flex-direction: column;
+  min-width: 250px;
 }
 
 .form input {
@@ -660,4 +662,49 @@ FORMULARIO
 
 .form-suscribe button:hover {
   background-color: var(--color-light);
+}
+
+.oferta-cronometro {
+  background-color: transparent;
+  color: var(--color-primary);
+  text-align: center;
+  margin: 20px auto;
+  font-family: "Segoe UI", sans-serif;
+  gap: 15px;
+  justify-content: center;
+  display: flex;
+}
+
+.oferta-cronometro .mensaje {
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+#reloj {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  background-color: var(--color-light);
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  box-shadow: 0 0 10px var(--color-gray-light);
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+@keyframes pulso {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#reloj {
+  animation: pulso 1s infinite;
 }
