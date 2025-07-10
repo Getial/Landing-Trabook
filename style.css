@@ -373,26 +373,6 @@ footer .copyright {
   color: var(--color-primary-dark);
 }
 
-@media (max-width: 1045px) {
-  .footer-details .column {
-    flex: 1 1 35%;
-    padding-left: 8rem;
-  }
-  .footer-details .logo-column {
-    /* width: 100%; */
-    padding-left: 2rem;
-  }
-}
-@media (max-width: 600px) {
-  .footer-details .column {
-    flex: 1 1 100%;
-    padding-left: 2rem;
-  }
-  footer .copyright {
-    padding: 1rem 0 0 0;
-  }
-}
-
 /*Dayana
 
 /* Estilo del header */
@@ -707,4 +687,88 @@ FORMULARIO
 
 #reloj {
   animation: pulso 1s infinite;
+}
+
+.open-menu {
+  width: 40px;
+  height: 40px;
+  background-image: url("./assets/menu-icon.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 18px;
+  right: 30px;
+  border: none;
+  display: none;
+}
+
+.menu-aside {
+  display: none;
+  width: 50%;
+  height: 100vh;
+  position: fixed;
+  top: 0%;
+  right: 0;
+  background-color: var(--color-light);
+  z-index: 1000;
+}
+
+.close-menu {
+  width: 40px;
+  height: 40px;
+  background-image: url("./assets/close-icon.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  position: absolute;
+  top: 18px;
+  right: 30px;
+}
+
+.nav-links-aside {
+  margin-top: 5rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-links-aside li a {
+  text-decoration: none;
+  color: var(--color-dark);
+  font-weight: 700px;
+  padding: 10px 0;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.nav-links-aside li a:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 1045px) {
+  .open-menu {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+  }
+  .footer-details .column {
+    flex: 1 1 35%;
+    padding-left: 8rem;
+  }
+  .footer-details .logo-column {
+    /* width: 100%; */
+    padding-left: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .footer-details .column {
+    flex: 1 1 100%;
+    padding-left: 2rem;
+  }
+  footer .copyright {
+    padding: 1rem 0 0 0;
+  }
 }

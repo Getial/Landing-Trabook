@@ -161,9 +161,6 @@ function countdown() {
   const minutos = Math.floor((diferencia % (60 * 60 * 1000)) / (1000 * 60));
   const segundos = Math.floor((diferencia % (60 * 1000)) / 1000);
 
-  // horas = String(horas).padStart(2, "0");
-  // minutos = String(minutos).padStart(2, "0");
-  // segundos = String(segundos).padStart(2, "0");
   reloj.textContent = `${String(horas).padStart(2, "0")}:${String(
     minutos
   ).padStart(2, "0")}:${String(segundos).padStart(2, "0")}`;
@@ -171,3 +168,18 @@ function countdown() {
 
 countdown();
 const intervalo = setInterval(countdown, 1000);
+
+const openMenuBtn = document.getElementById("open-menu");
+const closeMenuBtn = document.getElementById("close-menu");
+const menuAside = document.getElementById("menu-aside");
+
+openMenuBtn.addEventListener("click", openMenu);
+closeMenuBtn.addEventListener("click", closeMenu);
+
+function openMenu() {
+  menuAside.style.display = "block";
+}
+
+function closeMenu() {
+  menuAside.style.display = "none";
+}
