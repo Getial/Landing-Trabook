@@ -1,20 +1,13 @@
 :root {
   /* Colores primarios */
   --color-primary: #fa7436; /* Naranja principal (botones, acentos) */
-  --color-primary-dark: #e66327; /* Versión más oscura del naranja */
   --color-primary-light: #ffe7db; /* Fondo de tarjetas o secciones secundarias */
-
-  /* Colores secundarios */
-  --color-secondary: #ffd205; /* Amarillo (estrellas y pequeños acentos) */
-  --color-highlight: #2d96fa; /* Azul usado en íconos o links ocasionales */
-  --color-success: #45b26b; /* Verde si deseas usar algún estado positivo */
 
   /* Colores neutros */
   --color-white: #ffffff;
   --color-light: #f7f8fc; /* Fondo claro general */
   --color-gray: #9b9b9b; /* Texto secundario */
   --color-gray-light: #f0f0f0; /* Fondo de tarjetas o secciones secundarias */
-  --color-dark: #191825; /* Títulos y texto principal */
 
   /* Texto */
   --text-primary: #191825;
@@ -22,8 +15,9 @@
 
   /* Extras */
   --color-border: #e5e5e5;
-  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
   --radius-soft: 12px;
+  --size-icon: 35px; /* Tamaño de íconos */
 }
 
 * {
@@ -31,6 +25,12 @@
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  background-color: var(--color-light);
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 .hero {
@@ -67,6 +67,7 @@
 }
 
 .hero-description h2 {
+  color: var(--text-secondary);
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.75rem;
@@ -97,7 +98,7 @@
 
 .hero button:hover {
   background-color: var(--color-primary);
-  color: var(--color-white);
+  color: var(--color-light);
 }
 
 .deals {
@@ -111,6 +112,7 @@
 }
 
 .deals h2 {
+  color: var(--text-primary);
   width: 100%;
   text-align: center;
   font-size: 2.5rem;
@@ -137,14 +139,11 @@
   gap: 1rem;
   padding: 1rem;
 }
-/* .deals .carrusel::-webkit-scrollbar {
-  display: none; /* Oculta la barra de desplazamiento 
-} */
 
 .carrusel-item {
   flex: 0 0 auto; /* Permite que los elementos se ajusten al contenido */
   width: 300px; /* Ancho fijo para cada oferta */
-  background-color: var(--color-white);
+  background-color: var(--color-light);
   border-radius: var(--radius-soft);
   box-shadow: var(--shadow-soft);
   padding: 1rem;
@@ -153,6 +152,13 @@
 }
 .carrusel-item:hover {
   transform: translateY(-5px);
+}
+
+.carrusel-item h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
 }
 
 .carrusel-item img {
@@ -239,12 +245,14 @@
   background-color: var(--color-light);
   padding: 2rem;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 
 .blog h2 {
+  color: var(--text-primary);
   text-align: center;
   font-size: 2.5rem;
   font-weight: 700;
@@ -272,6 +280,7 @@ footer {
   padding: 1.5rem;
   text-align: center;
   border-top: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
 }
 
 .footer-details {
@@ -330,7 +339,7 @@ footer {
 }
 
 .column ul li a:hover {
-  color: var(--color-dark);
+  color: var(--color-primary);
 }
 
 footer .copyright {
@@ -370,7 +379,7 @@ footer .copyright {
 }
 
 .made-by a:hover {
-  color: var(--color-primary-dark);
+  color: var(--color-primary);
 }
 
 /*Dayana
@@ -383,6 +392,20 @@ header {
   padding: 20px 40px;
   width: 98vw;
   overflow-x: hidden;
+}
+
+header .toggle-theme {
+  width: var(--size-icon);
+  height: var(--size-icon);
+  background-image: url("./assets/moon-icon.png");
+  background-size: cover;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 20px;
+  right: 80px;
+  border: none;
+  cursor: pointer;
 }
 
 /* Contenedor del logo y menú */
@@ -407,7 +430,7 @@ header {
 
 .nav-links li a {
   text-decoration: none;
-  color: var(--color-dark);
+  color: var(--text-primary);
   font-weight: 700;
   transition: color 0.3s ease;
   padding: 10px 0;
@@ -416,7 +439,7 @@ header {
 /* Efecto al pasar el mouse */
 .nav-links li a:hover {
   color: var(--color-primary);
-  border-top: solid 2px var(--color-dark);
+  border-top: solid 4px var(--text-primary);
 }
 
 .things-to-do {
@@ -460,7 +483,7 @@ PARTE Features
   border-radius: 10px;
   padding: 30px 20px;
   width: 280px;
-  box-shadow: 0 2px 8px var(--color-dark);
+  box-shadow: 0 2px 8px var(--color-gray);
   transition: transform 0.3s ease;
 }
 
@@ -489,11 +512,13 @@ Parte de Vacaciones
 */
 
 .vacations-plans {
+  background-color: var(--color-light);
   text-align: center;
   padding: 60px 20px;
 }
 
 .vacations-plans h2 {
+  color: var(--text-primary);
   font-size: 2.5rem;
   margin-bottom: 10px;
 }
@@ -583,7 +608,6 @@ FORMULARIO
 */
 .form-suscribe {
   background-color: var(--color-primary); /* Naranja fuerte */
-  color: var(--color-light);
   text-align: center;
   padding: 60px 20px;
   border-radius: 15px;
@@ -596,6 +620,7 @@ FORMULARIO
 }
 
 .form-suscribe h2 {
+  color: var(--text-primary);
   font-size: 2rem;
   font-weight: 900;
   margin-bottom: 30px;
@@ -603,8 +628,8 @@ FORMULARIO
 }
 
 .form {
-  background-color: var(--color-light);
-  width: 35%;
+  background-color: var(--color-primary-light); /* Naranja claro */
+  width: 50%;
   padding: 1rem;
   height: auto;
   display: flex;
@@ -628,11 +653,18 @@ FORMULARIO
   text-align: center;
 }
 
+.form-suscribe p {
+  color: var(--color-white);
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
 .form-suscribe button {
   padding: 15px 25px;
   border: none;
   background-color: var(--color-primary);
-  color: var(--color-light);
+  color: var(--color-white);
   font-weight: bold;
   border-radius: 10px;
   cursor: pointer;
@@ -642,6 +674,7 @@ FORMULARIO
 
 .form-suscribe button:hover {
   background-color: var(--color-light);
+  color: var(--color-primary);
 }
 
 .oferta-cronometro {
@@ -665,11 +698,11 @@ FORMULARIO
   font-size: 2rem;
   font-weight: bold;
   color: var(--color-primary);
-  background-color: var(--color-light);
+  background-color: var(--color-primary-light);
   padding: 10px 20px;
   border-radius: 10px;
   display: inline-block;
-  box-shadow: 0 0 10px var(--color-gray-light);
+  box-shadow: 0 0 10px var(--color-gray);
   margin-top: 15px;
   margin-bottom: 30px;
 }
@@ -690,9 +723,10 @@ FORMULARIO
 }
 
 .open-menu {
-  width: 40px;
-  height: 40px;
+  width: var(--size-icon);
+  height: var(--size-icon);
   background-image: url("./assets/menu-icon.png");
+  background-color: transparent;
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
@@ -714,9 +748,10 @@ FORMULARIO
 }
 
 .close-menu {
-  width: 40px;
-  height: 40px;
+  width: var(--size-icon);
+  height: var(--size-icon);
   background-image: url("./assets/close-icon.png");
+  background-color: transparent;
   background-size: cover;
   background-repeat: no-repeat;
   border: none;
@@ -737,7 +772,7 @@ FORMULARIO
 
 .nav-links-aside li a {
   text-decoration: none;
-  color: var(--color-dark);
+  color: var(--text-primary);
   font-weight: 700px;
   padding: 10px 0;
   border-bottom: 2px solid var(--color-border);

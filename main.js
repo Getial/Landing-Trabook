@@ -1,3 +1,14 @@
+const style = document.documentElement.style;
+const toggleThemeBtn = document.querySelector(".toggle-theme");
+const openMenuBtn = document.getElementById("open-menu");
+const closeMenuBtn = document.getElementById("close-menu");
+const menuAside = document.getElementById("menu-aside");
+const reloj = document.getElementById("reloj");
+
+const duracion = 2 * 60 * 60 * 1000;
+const inicio = new Date().getTime();
+const fin = inicio + duracion;
+let theme = localStorage.getItem("theme") || "light";
 const ofertas = [
   {
     ciudad: "Madrid",
@@ -50,7 +61,6 @@ const ofertas = [
     precioAnterior: 899,
   },
 ];
-
 const posts = [
   {
     titulo: "The Amazing Difference a Year of Travelling.",
@@ -73,6 +83,14 @@ const posts = [
     fecha: "2024-08-07",
   },
 ];
+
+toggleThemeBtn.addEventListener("click", toggleTheme);
+openMenuBtn.addEventListener("click", openMenu);
+closeMenuBtn.addEventListener("click", closeMenu);
+document.addEventListener("DOMContentLoaded", () => {
+  cargarOfertas();
+  cargarPosts();
+});
 
 function crearOferta(oferta) {
   const ofertaHTML = `
@@ -138,17 +156,6 @@ function cargarPosts() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  cargarOfertas();
-  cargarPosts();
-});
-
-const reloj = document.getElementById("reloj");
-const duracion = 2 * 60 * 60 * 1000;
-const inicio = new Date().getTime();
-const fin = inicio + duracion;
-// reloj.textContent = "00:00:00";
-
 function countdown() {
   const ahora = new Date().getTime();
   const diferencia = fin - ahora;
@@ -166,16 +173,6 @@ function countdown() {
   ).padStart(2, "0")}:${String(segundos).padStart(2, "0")}`;
 }
 
-countdown();
-const intervalo = setInterval(countdown, 1000);
-
-const openMenuBtn = document.getElementById("open-menu");
-const closeMenuBtn = document.getElementById("close-menu");
-const menuAside = document.getElementById("menu-aside");
-
-openMenuBtn.addEventListener("click", openMenu);
-closeMenuBtn.addEventListener("click", closeMenu);
-
 function openMenu() {
   menuAside.style.display = "block";
 }
@@ -183,3 +180,46 @@ function openMenu() {
 function closeMenu() {
   menuAside.style.display = "none";
 }
+
+function toggleTheme() {
+  if (theme === "light") {
+    setThemeDark();
+    theme = "dark";
+    localStorage.setItem("theme", "dark");
+  } else {
+    setThemeLight();
+    theme = "light";
+    localStorage.setItem("theme", "light");
+  }
+}
+function setThemeDark() {
+  style.setProperty("--color-light", "#3f3f3f");
+  style.setProperty("--text-primary", "#f0f0f0");
+  style.setProperty("--text-secondary", "#b0b0b0");
+  style.setProperty("--color-gray-light", "#4f4f4f");
+  openMenuBtn.style.backgroundImage = "url('./assets/menu-icon-light.png')";
+  toggleThemeBtn.style.backgroundImage = "url('./assets/sun-icon.png')";
+  closeMenuBtn.style.backgroundImage = "url('./assets/close-icon-light.png')";
+}
+
+function setThemeLight() {
+  style.setProperty("--color-light", "#f7f8fc");
+  style.setProperty("--text-primary", "#191825");
+  style.setProperty("--text-secondary", "#6e6e6e");
+  style.setProperty("--color-gray-light", "##f0f0f0");
+  openMenuBtn.style.backgroundImage = "url('./assets/menu-icon.png')";
+  toggleThemeBtn.style.backgroundImage = "url('./assets/moon-icon.png')";
+  closeMenuBtn.style.backgroundImage = "url('./assets/close-icon.png')";
+}
+
+function verifyTheme() {
+  if (theme === "light") {
+    setThemeLight();
+  } else {
+    setThemeDark();
+  }
+}
+
+countdown();
+verifyTheme();
+const intervalo = setInterval(countdown, 1000);
